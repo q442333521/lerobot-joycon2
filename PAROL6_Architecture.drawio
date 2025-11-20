@@ -1,0 +1,309 @@
+<mxfile host="app.diagrams.net" modified="2025-01-20T00:00:00.000Z" agent="5.0" version="21.6.5" type="device">
+  <diagram name="PAROL6 Architecture" id="parol6-arch">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Background -->
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry width="1600" height="1200" as="geometry" />
+        </mxCell>
+
+        <!-- Title -->
+        <mxCell id="title" value="PAROL6 LeRobot &amp; ROS2 Integration Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="800" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Layer 1: Application Layer -->
+        <mxCell id="app-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="1400" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="app-layer-title" value="Application Layer (LeRobot Workflow)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="110" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Application modules -->
+        <mxCell id="app-teleoperate" value="&lt;b&gt;Teleoperate&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: teleoperate.py&lt;br&gt;Function: main()&lt;br&gt;&lt;br&gt;Controls:&lt;br&gt;• Joycon input&lt;br&gt;• Keyboard control" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="140" y="150" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="app-record" value="&lt;b&gt;Record&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: record.py&lt;br&gt;Function: record_episode()&lt;br&gt;&lt;br&gt;Config:&lt;br&gt;• episode_time_s: 30&lt;br&gt;• num_episodes: 50" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="360" y="150" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="app-train" value="&lt;b&gt;Train&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: train.py&lt;br&gt;Function: train()&lt;br&gt;&lt;br&gt;Config:&lt;br&gt;• policy: smolvla_base&lt;br&gt;• batch_size: 8&lt;br&gt;• steps: 20000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="580" y="150" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="app-inference" value="&lt;b&gt;Inference&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: record.py&lt;br&gt;Function: inference()&lt;br&gt;&lt;br&gt;Config:&lt;br&gt;• policy.path: checkpoint&lt;br&gt;• use_policy: true" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="800" y="150" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="app-simulation" value="&lt;b&gt;Simulation&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: test_parol6_robosuite.py&lt;br&gt;Function: test_robosuite_basic()&lt;br&gt;&lt;br&gt;Environment:&lt;br&gt;• Robosuite (UR5e)&lt;br&gt;• Control freq: 20Hz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43A047;strokeColor=#2E7D32;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="150" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Layer 2: Robot Interface Layer -->
+        <mxCell id="robot-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="100" y="320" width="1400" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="robot-layer-title" value="Robot Interface Layer (PAROL6 Class)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#BF360C;" vertex="1" parent="1">
+          <mxGeometry x="120" y="330" width="350" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Robot Configuration -->
+        <mxCell id="robot-config" value="&lt;b&gt;PAROL6 Configuration&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: config_parol6.py&lt;br&gt;Class: Parol6Config&lt;br&gt;&lt;br&gt;Parameters:&lt;br&gt;• port: /dev/ttyUSB0&lt;br&gt;• baudrate: 115200&lt;br&gt;• use_ros2_bridge: bool&lt;br&gt;• max_relative_target: 0.5&lt;br&gt;• control_frequency: 100Hz&lt;br&gt;• joint_limits: dict&lt;br&gt;• enable_position_filter: true&lt;br&gt;• position_filter_coeff: 0.8" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6F00;strokeColor=#E65100;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="140" y="370" width="260" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Robot Control -->
+        <mxCell id="robot-control" value="&lt;b&gt;PAROL6 Robot Class&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: parol6.py&lt;br&gt;Class: Parol6&lt;br&gt;&lt;br&gt;Main Functions:&lt;br&gt;• connect() - Init connection&lt;br&gt;• disconnect() - Close&lt;br&gt;• get_observation() - Read state&lt;br&gt;• send_action() - Send commands&lt;br&gt;• calibrate() - Verify limits&lt;br&gt;&lt;br&gt;Features:&lt;br&gt;• 6-DOF joint control&lt;br&gt;• Camera integration&lt;br&gt;• Safety limits&lt;br&gt;• Position filtering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6F00;strokeColor=#E65100;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="440" y="370" width="280" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Joint Names -->
+        <mxCell id="robot-joints" value="&lt;b&gt;Joint Configuration&lt;/b&gt;&lt;br&gt;&lt;br&gt;Joints (6-DOF):&lt;br&gt;• shoulder_pan&lt;br&gt;• shoulder_lift&lt;br&gt;• elbow&lt;br&gt;• wrist_1&lt;br&gt;• wrist_2&lt;br&gt;• wrist_3&lt;br&gt;&lt;br&gt;Home Position:&lt;br&gt;[0.0, -1.57, 1.57,&lt;br&gt; -1.57, -1.57, 0.0]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F57C00;strokeColor=#E65100;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="760" y="370" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Camera Integration -->
+        <mxCell id="robot-camera" value="&lt;b&gt;Camera Integration&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: cameras/opencv.py&lt;br&gt;&lt;br&gt;Config:&lt;br&gt;• type: opencv&lt;br&gt;• width: 640&lt;br&gt;• height: 480&lt;br&gt;• fps: 30&lt;br&gt;&lt;br&gt;Function:&lt;br&gt;• async_read()&lt;br&gt;• connect()&lt;br&gt;• disconnect()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F57C00;strokeColor=#E65100;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="980" y="370" width="200" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Safety Features -->
+        <mxCell id="robot-safety" value="&lt;b&gt;Safety Features&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: utils.py&lt;br&gt;Function:&lt;br&gt;ensure_safe_goal_position()&lt;br&gt;&lt;br&gt;Checks:&lt;br&gt;• Joint limits&lt;br&gt;• Max relative target&lt;br&gt;• Position clipping&lt;br&gt;• Velocity limits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F57C00;strokeColor=#E65100;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="370" width="240" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- Layer 3: Communication Layer -->
+        <mxCell id="comm-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=2;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="100" y="580" width="1400" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comm-layer-title" value="Communication Layer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#4A148C;" vertex="1" parent="1">
+          <mxGeometry x="120" y="590" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Serial Communication -->
+        <mxCell id="comm-serial" value="&lt;b&gt;Serial Communication&lt;/b&gt;&lt;br&gt;&lt;br&gt;Library: pyserial&lt;br&gt;&lt;br&gt;Config:&lt;br&gt;• Port: /dev/ttyUSB0&lt;br&gt;• Baudrate: 115200&lt;br&gt;• Timeout: 1.0s&lt;br&gt;&lt;br&gt;Protocol:&lt;br&gt;• CMD: MOVE,j0,j1,...,j5&lt;br&gt;• Response: OK/ERROR&lt;br&gt;&lt;br&gt;Functions:&lt;br&gt;• _send_joint_positions()&lt;br&gt;• _read_joint_positions()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B1FA2;strokeColor=#4A148C;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="180" y="630" width="260" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ROS2 Bridge -->
+        <mxCell id="comm-ros2-bridge" value="&lt;b&gt;ROS2 Bridge&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: parol6_ros2_bridge.py&lt;br&gt;Class: Parol6ROS2Bridge&lt;br&gt;&lt;br&gt;Config:&lt;br&gt;• namespace: /parol6&lt;br&gt;• control_frequency: 100Hz&lt;br&gt;&lt;br&gt;Functions:&lt;br&gt;• connect() - Init ROS2&lt;br&gt;• disconnect() - Shutdown&lt;br&gt;• send_joint_positions(pos)&lt;br&gt;• get_joint_positions() → np.array&lt;br&gt;• get_joint_velocities() → np.array&lt;br&gt;• _joint_state_callback(pos, vel)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B1FA2;strokeColor=#4A148C;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="520" y="630" width="300" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ROS2 Node -->
+        <mxCell id="comm-ros2-node" value="&lt;b&gt;ROS2 Node&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: parol6_ros2_node.py&lt;br&gt;Class: Parol6ROS2Node&lt;br&gt;&lt;br&gt;Publishers:&lt;br&gt;• /parol6/joint_states&lt;br&gt;  (sensor_msgs/JointState)&lt;br&gt;• /parol6/joint_trajectory_controller/state&lt;br&gt;  (control_msgs/JointTrajectoryControllerState)&lt;br&gt;&lt;br&gt;Subscribers:&lt;br&gt;• /parol6/joint_trajectory_controller/joint_trajectory&lt;br&gt;  (trajectory_msgs/JointTrajectory)&lt;br&gt;• /parol6/joint_commands&lt;br&gt;  (sensor_msgs/JointState)&lt;br&gt;&lt;br&gt;Functions:&lt;br&gt;• publish_joint_state()&lt;br&gt;• joint_command_callback(msg)&lt;br&gt;• publish_controller_state()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B1FA2;strokeColor=#4A148C;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="900" y="630" width="380" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Layer 4: Hardware/Simulation Layer -->
+        <mxCell id="hw-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="100" y="820" width="1400" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hw-layer-title" value="Hardware &amp; Simulation Layer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1B5E20;" vertex="1" parent="1">
+          <mxGeometry x="120" y="830" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Hardware -->
+        <mxCell id="hw-parol6" value="&lt;b&gt;PAROL6 Hardware&lt;/b&gt;&lt;br&gt;&lt;br&gt;Specifications:&lt;br&gt;• DOF: 6 (similar to UR5)&lt;br&gt;• Max velocity: 3.15 rad/s&lt;br&gt;• Max accel: 10 rad/s²&lt;br&gt;• Communication: USB/Serial&lt;br&gt;&lt;br&gt;Joints:&lt;br&gt;• All joints: ±180° range&lt;br&gt;• Position control mode&lt;br&gt;&lt;br&gt;Interface:&lt;br&gt;• Serial port: /dev/ttyUSB0&lt;br&gt;• Baudrate: 115200" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43A047;strokeColor=#2E7D32;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="200" y="870" width="300" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Robosuite -->
+        <mxCell id="hw-robosuite" value="&lt;b&gt;Robosuite Simulation&lt;/b&gt;&lt;br&gt;&lt;br&gt;File: test_parol6_robosuite.py&lt;br&gt;&lt;br&gt;Config:&lt;br&gt;• env_name: Lift, Stack, etc.&lt;br&gt;• robots: UR5e (proxy for PAROL6)&lt;br&gt;• control_freq: 20Hz&lt;br&gt;• has_renderer: true&lt;br&gt;&lt;br&gt;Functions:&lt;br&gt;• test_robosuite_basic()&lt;br&gt;• test_parol6_robosuite_integration()&lt;br&gt;• test_robosuite_teleoperation()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43A047;strokeColor=#2E7D32;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="580" y="870" width="380" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Scripts -->
+        <mxCell id="hw-scripts" value="&lt;b&gt;Launch Scripts&lt;/b&gt;&lt;br&gt;&lt;br&gt;Files:&lt;br&gt;• scripts/parol6/start_parol6_ros2.sh&lt;br&gt;• ros2_adapter/launch/parol6_bringup.launch.py&lt;br&gt;&lt;br&gt;Tests:&lt;br&gt;• scripts/parol6/test_parol6_lerobot.py&lt;br&gt;• tests/parol6/test_ros2_integration.py&lt;br&gt;&lt;br&gt;Examples:&lt;br&gt;• examples/parol6_example.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="870" width="380" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows: Application -> Robot -->
+        <mxCell id="arrow-app-robot1" value="" style="endArrow=classic;html=1;strokeColor=#1976D2;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.167;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;curved=1;" edge="1" parent="1" source="app-teleoperate" target="robot-control">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow-app-robot2" value="" style="endArrow=classic;html=1;strokeColor=#1976D2;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;" edge="1" parent="1" source="app-record" target="robot-control">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow-app-robot3" value="" style="endArrow=classic;html=1;strokeColor=#1976D2;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.833;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;curved=1;" edge="1" parent="1" source="app-inference" target="robot-control">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: Simulation -> Robot -->
+        <mxCell id="arrow-sim-robot" value="Test &amp; Validate" style="endArrow=classic;html=1;strokeColor=#43A047;strokeWidth=3;exitX=0;exitY=0.75;entryX=1;entryY=0.25;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;labelBackgroundColor=#FFFFFF;fontColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="app-simulation" target="robot-control">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="900" y="233" />
+              <mxPoint x="900" y="408" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: Robot -> Config -->
+        <mxCell id="arrow-robot-config" value="uses" style="endArrow=classic;html=1;strokeColor=#FF6F00;strokeWidth=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;labelBackgroundColor=#FFFFFF;fontColor=#E65100;fontSize=11;" edge="1" parent="1" source="robot-control" target="robot-config">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: Robot -> Joints -->
+        <mxCell id="arrow-robot-joints" value="controls" style="endArrow=classic;html=1;strokeColor=#FF6F00;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;labelBackgroundColor=#FFFFFF;fontColor=#E65100;fontSize=11;" edge="1" parent="1" source="robot-control" target="robot-joints">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: Robot -> Camera -->
+        <mxCell id="arrow-robot-camera" value="reads" style="endArrow=classic;html=1;strokeColor=#FF6F00;strokeWidth=2;exitX=0.857;exitY=1;entryX=0;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;labelBackgroundColor=#FFFFFF;fontColor=#E65100;fontSize=11;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="robot-control" target="robot-camera">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="680" y="550" />
+              <mxPoint x="980" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: Robot -> Safety -->
+        <mxCell id="arrow-robot-safety" value="validates" style="endArrow=classic;html=1;strokeColor=#FF6F00;strokeWidth=2;exitX=1;exitY=0.75;entryX=0;entryY=0.25;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;labelBackgroundColor=#FFFFFF;fontColor=#E65100;fontSize=11;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="robot-control" target="robot-safety">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1100" y="483" />
+              <mxPoint x="1100" y="408" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: Robot -> Communication -->
+        <mxCell id="arrow-robot-serial" value="Serial Mode" style="endArrow=classic;html=1;strokeColor=#7B1FA2;strokeWidth=3;exitX=0.25;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;labelBackgroundColor=#FFFFFF;fontColor=#4A148C;fontSize=12;fontStyle=1;" edge="1" parent="1" source="robot-control" target="comm-serial">
+          <mxGeometry x="-0.2" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="510" y="580" />
+              <mxPoint x="310" y="580" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow-robot-ros2" value="ROS2 Mode" style="endArrow=classic;html=1;strokeColor=#7B1FA2;strokeWidth=3;exitX=0.75;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;labelBackgroundColor=#FFFFFF;fontColor=#4A148C;fontSize=12;fontStyle=1;" edge="1" parent="1" source="robot-control" target="comm-ros2-bridge">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="500" as="sourcePoint" />
+            <mxPoint x="750" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="650" y="580" />
+              <mxPoint x="670" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: ROS2 Bridge -> Node -->
+        <mxCell id="arrow-bridge-node" value="uses" style="endArrow=classic;html=1;strokeColor=#7B1FA2;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#FFFFFF;fontColor=#4A148C;fontSize=11;" edge="1" parent="1" source="comm-ros2-bridge" target="comm-ros2-node">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="700" as="sourcePoint" />
+            <mxPoint x="750" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrows: Communication -> Hardware -->
+        <mxCell id="arrow-serial-hw" value="USB/Serial" style="endArrow=classic;html=1;strokeColor=#43A047;strokeWidth=3;exitX=0.5;exitY=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="comm-serial" target="hw-parol6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="900" as="sourcePoint" />
+            <mxPoint x="750" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow-ros2-hw" value="ROS2 Topics" style="endArrow=classic;html=1;strokeColor=#43A047;strokeWidth=3;exitX=0.25;exitY=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="comm-ros2-node" target="hw-parol6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="900" as="sourcePoint" />
+            <mxPoint x="750" y="850" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="995" y="800" />
+              <mxPoint x="425" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrow: Robosuite connection -->
+        <mxCell id="arrow-sim-robosuite" value="Test Environment" style="endArrow=classic;html=1;strokeColor=#43A047;strokeWidth=3;exitX=0.75;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=#FFFFFF;fontColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="comm-ros2-node" target="hw-robosuite">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="900" as="sourcePoint" />
+            <mxPoint x="750" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#424242;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1020" width="1400" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-title" value="Legend &amp; Key Information" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1030" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Legend items -->
+        <mxCell id="legend-app" value="Application Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1070" width="150" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-robot" value="Robot Interface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF6F00;strokeColor=#E65100;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="310" y="1070" width="150" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-comm" value="Communication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B1FA2;strokeColor=#4A148C;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1070" width="150" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-hw" value="Hardware/Simulation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43A047;strokeColor=#2E7D32;strokeWidth=2;fontColor=#FFFFFF;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1070" width="150" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Key Features -->
+        <mxCell id="key-features" value="&lt;b&gt;Key Features:&lt;/b&gt;&lt;br&gt;• 6-DOF joint control (similar to UR5)&lt;br&gt;• Dual communication: Serial &amp; ROS2&lt;br&gt;• Safety: Joint limits, position filtering&lt;br&gt;• Control frequency: 100Hz&lt;br&gt;• Camera integration support" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1110" width="300" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key-files" value="&lt;b&gt;Important Files:&lt;/b&gt;&lt;br&gt;• lerobot/common/robots/parol6/parol6.py&lt;br&gt;• ros2_adapter/parol6_adapter/parol6_ros2_bridge.py&lt;br&gt;• ros2_adapter/parol6_adapter/parol6_ros2_node.py&lt;br&gt;• tests/parol6/test_parol6_robosuite.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1110" width="400" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key-config" value="&lt;b&gt;Key Config:&lt;/b&gt;&lt;br&gt;• Port: /dev/ttyUSB0&lt;br&gt;• Baudrate: 115200&lt;br&gt;• ROS2 namespace: /parol6&lt;br&gt;• Max relative target: 0.5" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="920" y="1110" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key-tests" value="&lt;b&gt;Test Commands:&lt;/b&gt;&lt;br&gt;python tests/parol6/test_parol6_robosuite.py --test all&lt;br&gt;python tests/parol6/test_ros2_integration.py --test all&lt;br&gt;python examples/parol6_example.py --example basic" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#1A1A1A;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1110" width="280" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
